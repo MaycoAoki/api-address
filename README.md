@@ -7,61 +7,68 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+Clone o projeto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+```bash
+  git clone https://github.com/MaycoAoki/api-address.git
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Entre no diretório do projeto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```bash
+  cd api-address
+```
+Docker
 
-## Learning Laravel
+```bash
+./vendor/bin/sail up
+```
+# Caso o Docker não carregue as configurações basica use faça isso
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Instale as dependências
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash
+  composer install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Faça a copia do env
+```bash
+cp .env.example .env
+```
+Use  esse comando para gerar a key
+```bash
+php artisan key:generate
+```
 
-## Laravel Sponsors
+# Banco de dados
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Migrar o banco
+```bash
+ php artisan migrate
+```
 
-### Premium Partners
+Essa e reponsavel por alimentar com 50 ceps validos aqui de Curitiba o banco de dados
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+php artisan db:seed --class=AddressSeeder
+```
 
-## Contributing
+* **O front-end está funcinado localmente não foi adicinado no docker**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # api-address
+
+Durante o desenvolvimento de uma API com Laravel e seu respectivo front end, adotei várias práticas e decisões técnicas 
+para garantir um código limpo e modular. Ao seguir o padrão MVC, separei as responsabilidades de apresentação, lógica de 
+negócios e manipulação de dados, o que facilitou a manutenção e escalabilidade do sistema.
+
+A aplicação dos princípios SOLID foi essencial para garantir a coesão e baixo acoplamento do código. Utilizei a injeção 
+de dependência para gerenciar as dependências entre os componentes, promovendo a reutilização e facilitando a substituição 
+de implementações.
+
+Na camada de front end, optei por tecnologias modernas como HTML5, CSS3 e JavaScript, combinadas com frameworks como Vue.js  
+para criar uma interface intuitiva. Segui as diretrizes de design e usabilidade, garantindo uma experiência do usuário coesa e atraente.
+
+Em suma, a combinação de boas práticas de desenvolvimento, código limpo, arquitetura sólida, injeção de dependência e uso eficaz 
+de tecnologias front end resultou em um sistema robusto, escalável e de fácil manutenção.
+
+
